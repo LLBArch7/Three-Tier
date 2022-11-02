@@ -14,20 +14,36 @@ resource "aws_eip" "nat_eip_prob" {
 
 }
 
-# SUBNET 1
-resource "aws_subnet" "subnet1" {
+# PUBLIC SUBNET 1
+resource "aws_subnet" "pub_subnet1" {
     cidr_block              = var.public_subnets1
     vpc_id                  = aws_vpc.test-vpc.id
     map_public_ip_on_launch = "true"
     availability_zone       = var.availability_zones_data.names[0]
 }
  
-# SUBNET 2
-resource "aws_subnet" "subnet2" {
+# PUBLIC SUBNET 2
+resource "aws_subnet" "pub_subnet2" {
     cidr_block              = var.public_subnets2
     vpc_id                  = aws_vpc.test-vpc.id
     map_public_ip_on_launch = "true"
+    availability_zone       = var.availability_zones_data.names[1]
+}
+
+# PRIVATE SUBNET 1
+resource "aws_subnet" "priv_subnet1" {
+    cidr_block              = var.private_subnets1
+    vpc_id                  = aws_vpc.test-vpc.id
+    map_public_ip_on_launch = "false"
     availability_zone       = var.availability_zones_data.names[0]
+}
+ 
+# PRIVATE SUBNET 2
+resource "aws_subnet" "priv_subnet2" {
+    cidr_block              = var.private_subnets2
+    vpc_id                  = aws_vpc.test-vpc.id
+    map_public_ip_on_launch = "false"
+    availability_zone       = var.availability_zones_data.names[1]
 }
 
 # NAT GATEWAY
