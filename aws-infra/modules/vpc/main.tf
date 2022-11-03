@@ -106,22 +106,12 @@ resource "aws_route_table" "route_table_intgw" {
 resource "aws_route_table_association" "route-pub-a-subnet1" {
     subnet_id      = aws_subnet.pub_subnet1.id
     route_table_id = aws_route_table.route_table_intgw.id
-
-    tags = {
-        "Name" : "Three-Tier Associate Route Table Pub 1"
-        "Terraform" : "true"
-    }
 }
 
 # ASSOCIATE PUBLIC SUBNET 2
 resource "aws_route_table_association" "route-pub-a-subnet2" {
     subnet_id      = aws_subnet.pub_subnet2.id
     route_table_id = aws_route_table.route_table_intgw.id
-
-    tags = {
-        "Name" : "Three-Tier Associate Route Table Pub 2"
-        "Terraform" : "true"
-    }
 }
 
 # ROUTE TABLE NAT GATEWAY
@@ -143,20 +133,10 @@ resource "aws_route_table" "route_table_natgw" {
 resource "aws_route_table_association" "route-priv-a-subnet1" {
     subnet_id      = aws_subnet.priv_subnet1.id
     route_table_id = aws_route_table.route_table_natgw.id
-
-    tags = {
-        "Name" : "Three-Tier Associate Route Table Priv 1"
-        "Terraform" : "true"
-    }
 }
 
 # ASSOCIATE PRIVATE SUBNET 2
 resource "aws_route_table_association" "route-priv-a-subnet2" {
     subnet_id      = aws_subnet.priv_subnet2.id
     route_table_id = aws_route_table.route_table_natgw.id
-
-    tags = {
-        "Name" : "Three-Tier Associate Route Table Priv 2"
-        "Terraform" : "true"
-    }
 }
