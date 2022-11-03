@@ -7,11 +7,11 @@ variable "aws_key" {}
 variable "aws_public_subnets1" {
     default = "172.19.0.0/18"
 }
-variable "aws_public_subnets2" {
-    default = "172.19.64.0/18"
-}
 variable "aws_private_subnets1" {
     default = "172.19.128.0/18"
+}
+variable "aws_public_subnets2" {
+    default = "172.19.64.0/18"
 }
 variable "aws_private_subnets2" {
     default = "172.19.192.0/18"
