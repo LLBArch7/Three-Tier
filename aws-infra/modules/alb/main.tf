@@ -4,7 +4,7 @@ resource "aws_lb" "three-tier" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [var.jenkins_plus_ssh]
-  subnets            = [var.private_subnets1_id]
+  subnets            = [var.private_subnets1_id, var.private_subnets2_id]
 
   tags = {
     Environment = "Three-Tier"

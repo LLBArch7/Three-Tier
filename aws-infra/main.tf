@@ -26,6 +26,7 @@ module "CreateALB" {
     source = "./modules/alb"
     vpc_id = module.CreateVPC.vpc_id
     private_subnets1_id = module.CreateVPC.private_subnets1_id
+    private_subnets2_id = module.CreateVPC.private_subnets2_id
     jenkins_plus_ssh = module.CreateSG.jenkins_plus_ssh
     aws_main_vpc_cidr = var.aws_main_vpc_cidr
     ec2_id = module.CreateEC2.ec2_id
