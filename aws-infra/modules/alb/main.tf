@@ -3,7 +3,7 @@ resource "aws_lb" "three-tier" {
   name               = "Three-Tier-ALB"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [var.jenkins_plus_ssh.id]
+  security_groups    = [var.jenkins_plus_ssh]
   subnets            = [var.private_subnets1_id]
 
   tags = {
