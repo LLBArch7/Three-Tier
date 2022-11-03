@@ -19,3 +19,12 @@ module "CreateEC2" {
     key = var.aws_key
     vpc_security_group_id_1 = module.CreateSG.vpc_security_group_id_1
 }
+
+module "CreateALB" {
+    source = "./modules/ec2"
+    vpc_id = module.CreateVPC.vpc_id
+    public_subnets1_id = module.CreateVPC.public_subnets1_id
+    jenkins_plus_ssh = module.CreateSG.jenkins_plus_ssh
+    aws_main_vpc_cidr = var.aws_main_vpc_cidr
+    ec2_id = module.CreateEC2.ec2_id
+}
