@@ -8,7 +8,7 @@ resource "aws_security_group" "web_ssh" {
         from_port = 8080
         to_port = 8080
         protocol = "tcp"
-        cidr_blocks = ["0.0.0.0/0"]
+        cidr_blocks = [var.aws_public_subnets1, var.aws_public_subnets2]
     }
 
     ingress {

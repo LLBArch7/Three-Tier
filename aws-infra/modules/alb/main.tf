@@ -37,7 +37,7 @@ resource "aws_lb_target_group" "jenkins_alb_tg" {
     unhealthy_threshold = 2
     timeout = 2
     interval = 5
-    matcher = "200"
+    matcher = "403"
   }
 
 }

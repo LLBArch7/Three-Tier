@@ -11,6 +11,8 @@ module "CreateVPC" {
 module "CreateSG" {
     source = "./modules/sg"
     vpc_id = module.CreateVPC.vpc_id
+    aws_public_subnets1 = var.aws_public_subnets1
+    aws_public_subnets2 = var.aws_public_subnets2
 }
 
 module "CreateEC2" {
