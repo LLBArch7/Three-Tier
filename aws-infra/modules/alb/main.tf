@@ -29,6 +29,17 @@ resource "aws_lb_target_group" "jenkins_alb_tg" {
   port     = 8080
   protocol = "HTTP"
   vpc_id   = var.vpc_id
+
+    health_check {
+    path = "/"
+    port = 8080
+    healthy_threshold = 6
+    unhealthy_threshold = 2
+    timeout = 2
+    interval = 5
+    matcher = "200"
+  }
+
 }
 
 resource "aws_vpc" "main" {
